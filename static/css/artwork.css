@@ -1,70 +1,69 @@
-.html, body {
-    color: #ccc;
-    background: #2D3945;
-    font-family: Calibri;
+html {
+    background:lightcyan;
 }
 
-.container {
-    width: 360px;
-    margin: 0 auto;
-    padding: 5px 20px 0 20px;
-    border: 2px solid #ccc;
-    border-radius: 7px;
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
 }
 
-.container legend {
-    color: #ccc;
-    margin: 0 0 0 280px;
-    padding: 0;
-    letter-spacing: 2px;
+form {
+    max-width: 7000px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 100px;
+    text-align: center;
 }
 
-.wrapper {
-    margin: 0 0 20px 0;
+h1 {
+    margin: 0 0 30px 0;
+    text-align: center;
 }
 
-.hint {
-    color: #ccc;
+
+input[type="number"],
+select {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
     margin: 0;
-    font-size: 12px;
-    text-align: justify;
-}
-
-.lbl-tb {
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-.frm-ctrl {
-    color: #eee;
-    background: transparent;
-    margin: 5px 0;
+    outline: 0;
     padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    outline: none;
-    font-family: Calibri;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 16px;
 }
 
-.tb {
-    width: 350px;
-    font-size: 19px;
+button {
+    max-width: 500px;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 40%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    border-radius: 90px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-bottom: 90px;
+
 }
 
-.btn {
-    width: 360px;
-    height: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.2s
-}
 
-.btn:hover {
-    color: #2D3945;
-    background: #eee;
-}
 
-.btn:active {
-    border: 1px solid #333;
+
+div.center
+{
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

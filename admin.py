@@ -17,20 +17,19 @@ ENV = Environment(                                                  #the module 
   autoescape=select_autoescape(['html', 'xml'])
 )
 
-CITIES = {
-  'paris': {'pop': 1000}
-}
 
 class TemplateHandler(tornado.web.RequestHandler):
   def render_template (self, tpl, context):
     template = ENV.get_template(tpl)
     self.write(template.render(**context))
+
+
 class MainHandler(TemplateHandler):
   def get(self):
     self.set_header(
       'Cache-Control',
       'no-store, no-cache, must-revalidate, max-age=0')
-    self.render_template("admin.html", {'bitcoin': 100, 'names': ['paul', 'joe'], 'data': CITIES['paris']})
+    self.render_template("admin.html", {})
 
 
 
