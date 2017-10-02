@@ -1,15 +1,42 @@
 import os         ##this is wused when you're deploying server. it is ok to add it in the beginning of your project.
-
+import boto3
 
 import tornado.ioloop
 import tornado.web
 import tornado.log
 
+from dotenv import load_dotenv
+
+
 
 from jinja2 import \
   Environment, PackageLoader, select_autoescape                     #This is setting up jinja to know where the python module is located.
 
+
+
+
+load_dotenv('.env')
+
 PORT = int(os.environ.get('PORT','1337'))
+
+
+                                                                    #AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
+
+
+
+SES_CLIENT = boto3.client(
+  'ses',
+  aws_access_key_id=os.environ.get('AWS_ACCESS_KEY'),
+  aws_secret_access_key=os.environ.get('AWS_SECRET_KEY'),
+  region_name="us-east-1"
+)
+
+
+
+
+
+
+
 
 
 ENV = Environment(                                                  #the module and which directory within the module has your templates
@@ -53,15 +80,25 @@ class YouTooHandler(tornado.web.RequestHandler):            #this is a handler
     name = self.get_query_argument('name', 'Nobody')
     self.write("Hello World{}".format(name))
 
+class SubmissionHandler(tornado.web.RequestHandler):            #this is a handler
+  def post(self):
+    name = self.get_body_argument('name', 'Nobody')
+    email = self.get_body_argument('email')
 
+    self.write("Hello World " + name)
+
+    img = self.request.files['image'][0]
+    with open("temp.jpg", 'wb') as fh:
+        fh.write(img['body'])
 
 def make_app():                                 ##make_app will return the application and all the routing logic within it.
   return tornado.web.Application([              ##the r/hello2 will call the YouTooHandler hanlder
     (r"/", MainHandler),
     (r"/hello2", YouTooHandler),
+    (r"/form-submission", SubmissionHandler),
     (r"/page/(.*)", RickHandler),
     (
-     r"/static/(.*)",
+     r"/static/(.*)",                           ##this helps the server find the static folder which goes with all the main files.
      tornado.web.StaticFileHandler,
      {'path': 'static'}
     ),

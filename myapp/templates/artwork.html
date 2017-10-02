@@ -1,36 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/artwork.css">
-    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <title>Submit Rick & Morty Fan Art</title>
-</head>
-<body>
+{% extends 'base.html'%}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/css/artwork.css">
+{% endblock %}
+
+{% block navextra %}
+<li class="nav-item">
+    <a class="nav-link" href="#">hello udddyy</a>
+</li>
+{% endblock %}
+{% block content %}
 <h1> Submit your best Rick & Morty art work </h1>
 
 <fieldset class="container">
-    <form action="/some-action" method="post">
+    <form action="/form-submission" method="post" enctype="multipart/form-data">
 
     <legend><i class="fa fa-empire fa-4x"></i></legend>
     <div class="wrapper">
         <label for="tbUnm" class="lbl-tb"><i class="fa fa-user fa-fw"></i> Name</label>
         <br />
-        <input id="tbUnm" type="text" class="frm-ctrl tb" spellcheck="false" autocomplete="off" />
+        <input id="tbUnm" type="text" class="frm-ctrl tb" spellcheck="false" name="name" autocomplete="off" />
         <p class="hint">Feel free to use a nickname, if you don't want to reveal your identity.</p>
     </div>
     <div class="wrapper">
         <label for="tbEmail" class="lbl-tb"><i class="fa fa-envelope-o fa-fw"></i> Email</label>
         <br />
-        <input id="tbEmail" type="text" class="frm-ctrl tb" spellcheck="false" autocomplete="off" />
+        <input id="tbEmail" type="text" class="frm-ctrl tb" spellcheck="false" name="email" autocomplete="off" required />
         <p class="hint">We will be using this email address to convey you important updates and announcements</p>
     </div>
     <div class="wrapper">
         <label class="lbl-tb"><i class="fa fa-unlock fa-fw"></i> Upload an Image</label>
         <br />
-        <input id="tbPwd1" type="file" class="frm-ctrl tb" />
+        <input id="tbPwd1" type="file" class="frm-ctrl tb" name="image"/>
         <p class="hint">Please upload a high quality image.</p>
     </div>
 
@@ -40,16 +41,6 @@
 </fieldset>
 </form>
 
-<script src="./admin.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function(){
-        $('img').each(function() {      // if it's and ID, do #Rick, if it's class, do .Class , if it's an element, just type the element name
-            animationHover(this, 'bounce');
-        });
-    });
-</script>
-</body>
-</html>
+{% endblock %}
+{% block script %}<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script>{% endblock %}
