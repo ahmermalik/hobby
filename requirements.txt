@@ -1,2 +1,4 @@
+boto3
+python-dotenv
 tornado==4.5.2
 Jinja2==2.9.6
