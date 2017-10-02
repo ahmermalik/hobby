@@ -1,0 +1,70 @@
+html, body {
+    color: #ccc;
+    background: #2D3945;
+    font-family: Calibri;
+}
+
+.container {
+    width: 360px;
+    margin: 0 auto;
+    padding: 5px 20px 0 20px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+}
+
+.container legend {
+    color: #ccc;
+    margin: 0 0 0 280px;
+    padding: 0;
+    letter-spacing: 2px;
+}
+
+.wrapper {
+    margin: 0 0 20px 0;
+}
+
+.hint {
+    color: #ccc;
+    margin: 0;
+    font-size: 12px;
+    text-align: justify;
+}
+
+.lbl-tb {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.frm-ctrl {
+    color: #eee;
+    background: transparent;
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    font-family: Calibri;
+}
+
+.tb {
+    width: 350px;
+    font-size: 19px;
+}
+
+.btn {
+    width: 360px;
+    height: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s
+}
+
+.btn:hover {
+    color: #2D3945;
+    background: #eee;
+}
+
+.btn:active {
+    border: 1px solid #333;
+}

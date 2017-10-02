@@ -1,4 +1,4 @@
-import os         ##this is wused when you're deploying server
+import os         ##this is wused when you're deploying server. it is ok to add it in the beginning of your project.
 
 
 import tornado.ioloop
@@ -31,7 +31,7 @@ class MainHandler(TemplateHandler):
       'Cache-Control',
       'no-store, no-cache, must-revalidate, max-age=0')
     self.render_template("admin.html", {'bitcoin': 100, 'names': ['paul', 'joe'], 'data': CITIES['paris']})
-3
+
 
 
 
@@ -75,3 +75,7 @@ if __name__ == "__main__":
   app = make_app()
   app.listen(PORT, print('Server started on localhost: ' + str(PORT)))
   tornado.ioloop.IOLoop.current().start()
+
+
+
+
