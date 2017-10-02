@@ -45,6 +45,8 @@ ENV = Environment(                                                  #the module 
 )
 
 
+
+
 class TemplateHandler(tornado.web.RequestHandler):
   def render_template (self, tpl, context):
     template = ENV.get_template(tpl)
@@ -90,6 +92,30 @@ class SubmissionHandler(tornado.web.RequestHandler):            #this is a handl
     img = self.request.files['image'][0]
     with open("temp.jpg", 'wb') as fh:
         fh.write(img['body'])
+
+
+    response = SES_CLIENT.send_email(
+      Destination={
+        'ToAddresses': ['ahmerm92@gmail.com'],
+      },
+      Message={
+        'Body': {
+          'Text': {
+            'Charset': 'UTF-8',
+            'Data': 'Name: {}\nE-mail: {}\n'.format(name, email),               # learn how to attach the file submitted and e-mail it to yourself
+          },                                                                    #"SES Amazon Python BOTO" Keywords
+        },
+        'Subject': {'Charset': 'UTF-8', 'Data': 'Password Sniffer'},
+      },
+      Source='ahmerm92@gmail.com',
+    )
+
+
+
+
+
+
+
 
 def make_app():                                 ##make_app will return the application and all the routing logic within it.
   return tornado.web.Application([              ##the r/hello2 will call the YouTooHandler hanlder
