@@ -89,9 +89,10 @@ class SubmissionHandler(tornado.web.RequestHandler):            #this is a handl
 
     self.write("Hello World " + name)
 
-    img = self.request.files['image'][0]
-    with open("temp.jpg", 'wb') as fh:
-        fh.write(img['body'])
+    if 'image' in self.request.files:
+        img = self.request.files['image'][0]
+        with open("temp.jpg", 'wb') as fh:
+            fh.write(img['body'])
 
 
     response = SES_CLIENT.send_email(
